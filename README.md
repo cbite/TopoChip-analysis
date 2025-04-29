@@ -1,5 +1,7 @@
 # 📚 TopoChip Podocyte Image Analysis
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cbite/TopoChip-analysis/HEAD)
+
 ## Overview
 
 This repository supports the paper:
