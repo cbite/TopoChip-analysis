@@ -1,1 +1,26 @@
-"Post-build step: install Jupyter extensions"echo echo "Post-build step: install Jupyter extensions" 
+#!/bin/bash
+set -e  # exit immediately if a command fails
+
+echo "🔧 Running Binder postBuild steps..."
+
+# Install ipywidgets support
+echo "Installing ipywidgets extension..."
+jupyter nbextension enable --py widgetsnbextension --sys-prefix
+
+# Optional: ipympl for interactive matplotlib plots
+echo "Installing ipympl for interactive plotting..."
+python -m pip install ipympl --quiet
+
+# Enable matplotlib widget backend for Jupyter
+echo "Enabling ipympl backend in notebook config..."
+jupyter nbextension enable --py ipympl --sys-prefix || true
+
+# If JupyterLab is installed, build extensions
+if jupyter lab --version &> /dev/null; then
+    echo "Detected JupyterLab. Building extensions..."
+    jupyter lab build --dev-build=False --minimize=False
+else
+    echo "JupyterLab not found, skipping lab build."
+fi
+
+echo "✅ Binder environment setup complete."
