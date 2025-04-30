@@ -1,27 +1,19 @@
 #!/bin/bash
-set -e  # exit immediately if a command fails
+set -e
 
-echo "🔧 Running Binder postBuild steps..."
+echo "📦 Installing required packages..."
+pip install --quiet ipywidgets notebook widgetsnbextension || echo "⚠️ Failed to install packages"
 
-# Install ipywidgets support
-echo "Installing ipywidgets extension..."
-jupyter nbextension enable --py widgetsnbextension --sys-prefix
+echo "🔌 Enabling Jupyter Notebook widget extension (if available)..."
+jupyter nbextension enable --py widgetsnbextension --sys-prefix || echo "⚠️ widgetsnbextension not available"
 
-# Optional: ipympl for interactive matplotlib plots
-echo "Installing ipympl for interactive plotting..."
-python -m pip install ipympl --quiet
+echo "🔌 Installing JupyterLab widget manager extension (if using Lab)..."
+jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build || echo "⚠️ labextension install failed (expected in some minimal Binder images)"
 
-# Enable matplotlib widget backend for Jupyter
-echo "Enabling ipympl backend in notebook config..."
-jupyter nbextension enable --py ipympl --sys-prefix || true
-
-# If JupyterLab is installed, build extensions
-if jupyter lab --version &> /dev/null; then
-    echo "Detected JupyterLab. Building extensions..."
-    jupyter lab build --dev-build=False --minimize=False
-else
-    echo "JupyterLab not found, skipping lab build."
+# Rebuild JupyterLab only if it's available
+if jupyter lab --version > /dev/null 2>&1; then
+    echo "🔧 Rebuilding JupyterLab..."
+    jupyter lab build || echo "⚠️ JupyterLab rebuild failed"
 fi
 
-echo "✅ Binder environment setup complete."
-chmod +x .binder/start 
+echo "✅ postBuild complete"
