@@ -3,6 +3,7 @@ channels:
   - defaults
   - conda-forge
 dependencies:
+  - notebook>=6.4
   - python=3.10
   - jupyterlab
   - pandas
