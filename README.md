@@ -19,7 +19,7 @@ It contains all code, metadata, SOPs, and reproducible workflows used to build a
 ```bash
 TopoChip-analysis/
 ├── data/                 # Raw/processed data, metadata
-│   └── metadata/         # TopoChip layout, imaging metadata, large archives
+│   └── metadata/         # TopoChip layout, imaging metadata
 ├── notebooks/            # Jupyter Notebooks: QC, segmentation, ML
 ├── scripts/              # MATLAB, Python, CellProfiler scripts
 ├── SOPs/                 # Experimental protocols (fabrication, imaging, etc.)
