@@ -1,6 +1,6 @@
 # 📚 TopoChip Podocyte Image Analysis
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15310348.svg)](https://doi.org/10.5281/zenodo.15310348)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15310347.svg)](https://doi.org/10.5281/zenodo.15310347)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cbite/TopoChip-analysis/main)
 
 
