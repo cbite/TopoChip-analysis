@@ -1,11 +1,19 @@
+# CITATION.cff — minimal and Zenodo-friendly
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: "If you use this repository, please cite it via the Zenodo DOI."
+title: "TopoChip-analysis"
+abstract: >
+  Notebooks and a small demonstration subset (cropped TIFFs, CellProfiler
+  segmentations, and overlay projections) for the TopoChip analysis workflow.
+repository-code: "https://github.com/cbite/TopoChip-analysis"
+doi: "10.5281/zenodo.15310348"   # concept DOI shown in your Zenodo page
+license: MIT
 authors:
-  - family-names: YourLastName
-    given-names: YourFirstName
-    affiliation: YourInstitution
-    orcid: https://orcid.org/your-orcid
-title: "TopoChip Podocyte Image Analysis"
-version: 1.0.0
-date-released: 2025-04-29
-url: https://github.com/cbite/TopoChip-analysis
+  - name: "TopoChip team"
+preferred-citation:
+  type: software
+  title: "TopoChip-analysis"
+  authors:
+    - name: "TopoChip team"
+  doi: "10.5281/zenodo.15310348"
+  year: 2025
